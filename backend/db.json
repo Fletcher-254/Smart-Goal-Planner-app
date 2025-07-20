@@ -1,0 +1,20 @@
+{
+  "goals": [
+    {
+      "id": 1,
+      "name": "Emergency Fund",
+      "targetAmount": 5000,
+      "savedAmount": 1000,
+      "category": "Savings",
+      "deadline": "2025-12-31"
+    },
+    {
+      "id": 2,
+      "name": "Travel Fund",
+      "targetAmount": 3000,
+      "savedAmount": 750,
+      "category": "Leisure",
+      "deadline": "2025-09-01"
+    }
+  ]
+}
