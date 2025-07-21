@@ -1,21 +1,24 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import MainLayout from './layouts/MainLayout';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Goals from "./pages/Goals";
+
+import MainLayout from "./layouts/MainLayout";
+
+const App = () => {
   return (
     <Router>
       <MainLayout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/goals" element={<Goals />} />
         </Routes>
       </MainLayout>
     </Router>
   );
-}
+};
 
 export default App;
-
