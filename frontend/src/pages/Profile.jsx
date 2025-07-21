@@ -1,21 +1,13 @@
 import React from "react";
 
 function Profile() {
-  const user = {
-    name: "John Doe",
-    email: "johndoe@example.com",
-    bio: "I'm working on improving my productivity and reaching my goals!",
-  };
-
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>My Profile</h2>
-
-      <div style={{ marginTop: "20px", border: "1px solid #ccc", padding: "15px", borderRadius: "8px", width: "300px" }}>
-        <p><strong>Name:</strong> {user.name}</p>
-        <p><strong>Email:</strong> {user.email}</p>
-        <p><strong>Bio:</strong> {user.bio}</p>
-      </div>
+    <div className="max-w-2xl mx-auto px-4 py-8">
+      <h1 className="text-2xl font-bold mb-4 text-blue-600">Your Profile</h1>
+      <p className="text-gray-700">
+        This is your profile page. In the future, you could display your account details, goals progress,
+        statistics, or settings here.
+      </p>
     </div>
   );
 }
