@@ -1,37 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 
-const GoalForm = () => {
-  const [goal, setGoal] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Submitted Goal:", goal);
-    setGoal("");
-  };
-
+const Goals = () => {
   return (
-    <div className="p-8">
-      <h1 className="text-2xl font-bold mb-4">Create a Smart Goal</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block mb-1">Goal</label>
-          <input
-            type="text"
-            value={goal}
-            onChange={(e) => setGoal(e.target.value)}
-            className="w-full p-2 border rounded"
-            placeholder="Write your goal here"
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded"
-        >
-          Save Goal
-        </button>
-      </form>
+    <div className="p-6">
+      <h1 className="text-2xl font-semibold mb-4">My Goals</h1>
+      <p className="text-gray-600">
+        This is where you’ll track your goals. Stay tuned for updates!
+      </p>
     </div>
   );
 };
 
-export default GoalForm;
+export default Goals;
