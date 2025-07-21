@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-200 text-center p-4">
-      <p>2025 Smart Goal Planner</p>
+    <footer className="bg-gray-200 text-center p-4 mt-10">
+      <p>&copy; {new Date().getFullYear()} Smart Goal Planner. All rights reserved.</p>
     </footer>
   );
 };
