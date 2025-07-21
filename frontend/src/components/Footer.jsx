@@ -1,13 +1,11 @@
 import React from "react";
 
-const Footer = () => {
+function Footer() {
   return (
-    <footer className="bg-gray-100 text-center p-4 mt-10 shadow-inner">
-      <p className="text-sm text-gray-600">
-        &copy; {new Date().getFullYear()} Smart Goals. All rights reserved.
-      </p>
+    <footer className="text-center text-sm py-4 text-gray-500 border-t mt-10">
+      © {new Date().getFullYear()} SmartGoal Planner. Built with 💙 by You.
     </footer>
   );
-};
+}
 
 export default Footer;
