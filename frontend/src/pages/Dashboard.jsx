@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Dashboard() {
   const [goals, setGoals] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+  // Load goals from localStorage on initial render
+  useEffect(() => {
+    const storedGoals = localStorage.getItem("goals");
+    if (storedGoals) {
+      setGoals(JSON.parse(storedGoals));
+    }
+  }, []);
+
+  // Save goals to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("goals", JSON.stringify(goals));
+  }, [goals]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (title.trim() === "") return;
 
     const newGoal = {

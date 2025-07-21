@@ -1,14 +1,12 @@
 import React from "react";
 
-const Goals = () => {
+function Goals() {
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-semibold mb-4">My Goals</h1>
-      <p className="text-gray-600">
-        This is where you’ll track your goals. Stay tuned for updates!
-      </p>
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">Goals</h1>
+      <p>This is where you will create, view, and manage your smart goals.</p>
     </div>
   );
-};
+}
 
 export default Goals;
