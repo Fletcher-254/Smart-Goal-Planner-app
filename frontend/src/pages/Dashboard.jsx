@@ -33,6 +33,11 @@ function Dashboard() {
     setDescription("");
   };
 
+  const handleDelete = (id) => {
+    const updatedGoals = goals.filter((goal) => goal.id !== id);
+    setGoals(updatedGoals);
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-6 text-blue-600">Dashboard</h1>
@@ -74,10 +79,18 @@ function Dashboard() {
             {goals.map((goal) => (
               <li
                 key={goal.id}
-                className="border border-gray-200 p-4 rounded-md"
+                className="border border-gray-200 p-4 rounded-md flex justify-between items-start"
               >
-                <h3 className="text-md font-bold">{goal.title}</h3>
-                <p className="text-sm text-gray-700">{goal.description}</p>
+                <div>
+                  <h3 className="text-md font-bold">{goal.title}</h3>
+                  <p className="text-sm text-gray-700">{goal.description}</p>
+                </div>
+                <button
+                  onClick={() => handleDelete(goal.id)}
+                  className="text-red-500 hover:underline text-sm ml-4"
+                >
+                  Delete
+                </button>
               </li>
             ))}
           </ul>
