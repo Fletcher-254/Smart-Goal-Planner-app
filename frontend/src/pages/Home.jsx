@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { saveToLocalStorage, loadFromLocalStorage } from "../utils/localStorage";
 
 const Home = () => {
+  const [goal, setGoal] = useState("");
+
+  useEffect(() => {
+    const savedGoal = loadFromLocalStorage("goal");
+    if (savedGoal) {
+      setGoal(savedGoal);
+    }
+  }, []);
+
+  const handleChange = (e) => {
+    setGoal(e.target.value);
+    saveToLocalStorage("goal", e.target.value);
+  };
+
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Welcome to Smart Goal Planner</h1>
-      <p className="text-lg">
-        Plan, track, and achieve your goals efficiently using the SMART methodology.
-      </p>
+    <div className="p-4">
+      <h2 className="text-xl font-semibold mb-2">Set Your SMART Goal</h2>
+      <input
+        type="text"
+        value={goal}
+        onChange={handleChange}
+        placeholder="Type your goal here..."
+        className="w-full border border-gray-300 rounded px-3 py-2"
+      />
     </div>
   );
 };
