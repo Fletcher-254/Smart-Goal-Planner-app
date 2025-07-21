@@ -5,6 +5,7 @@ function Dashboard() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [editingId, setEditingId] = useState(null);
+  const [filter, setFilter] = useState("all");
 
   useEffect(() => {
     const storedGoals = localStorage.getItem("goals");
@@ -59,6 +60,12 @@ function Dashboard() {
     setGoals(updatedGoals);
   };
 
+  const filteredGoals = goals.filter((goal) => {
+    if (filter === "completed") return goal.completed;
+    if (filter === "incomplete") return !goal.completed;
+    return true;
+  });
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-6 text-blue-600">Dashboard</h1>
@@ -107,12 +114,41 @@ function Dashboard() {
       </div>
 
       <div className="bg-white shadow-md rounded-xl p-6">
-        <h2 className="text-lg font-semibold mb-4">Your Current Goals</h2>
-        {goals.length === 0 ? (
-          <p className="text-gray-600">No goals added yet.</p>
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-lg font-semibold">Your Current Goals</h2>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setFilter("all")}
+              className={`px-3 py-1 rounded-md ${
+                filter === "all" ? "bg-blue-500 text-white" : "bg-gray-200"
+              }`}
+            >
+              All
+            </button>
+            <button
+              onClick={() => setFilter("completed")}
+              className={`px-3 py-1 rounded-md ${
+                filter === "completed" ? "bg-blue-500 text-white" : "bg-gray-200"
+              }`}
+            >
+              Completed
+            </button>
+            <button
+              onClick={() => setFilter("incomplete")}
+              className={`px-3 py-1 rounded-md ${
+                filter === "incomplete" ? "bg-blue-500 text-white" : "bg-gray-200"
+              }`}
+            >
+              Incomplete
+            </button>
+          </div>
+        </div>
+
+        {filteredGoals.length === 0 ? (
+          <p className="text-gray-600">No goals found.</p>
         ) : (
           <ul className="space-y-4">
-            {goals.map((goal) => (
+            {filteredGoals.map((goal) => (
               <li
                 key={goal.id}
                 className="border border-gray-200 p-4 rounded-md flex justify-between items-start"
